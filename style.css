@@ -1,6 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200&display=swap");
 
 /* Återställning av grundstilar för webbsidan */
+/* 
+  Vilgot 70%
+  Elias 30%
+
+  Elias gjort figma + designen
+*/
 body {
   box-sizing: border-box;
   margin: 0;

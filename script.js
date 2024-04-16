@@ -1,5 +1,9 @@
 "use strict";
 
+// Uppdelning av arbete
+// Vilgot 60%
+// Elias 40%
+
 // Elementselektorer
 const elementer = {
   poäng: [
