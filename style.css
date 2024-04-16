@@ -1,0 +1,264 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200&display=swap");
+
+/* Återställning av grundstilar för webbsidan */
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: 400;
+  color: #333; /* Mörkgrå textfärg */
+  background-image: linear-gradient(
+    to right bottom,
+    #eeafeb,
+    #fb7dba,
+    #fe768a,
+    #c8735a,
+    #ffb14a
+  );
+}
+
+/** Huvudbehållare **/
+main {
+  position: relative;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  width: 70%;
+  height: auto;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.35
+  ); /* Vit bakgrund med 35% opacitet */
+  backdrop-filter: blur(200px); /* Bakgrundsludd för genomskinlighetseffekt */
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25); /* Skugga för att lyfta fram behållaren */
+  border-radius: 9px; /* Runda hörn för behållaren */
+  overflow: hidden; /* Dölj överflödigt innehåll */
+}
+
+/** Spelarsektion **/
+.player-cards {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  transition: all 0.75s;
+  text-align: center;
+}
+
+.player {
+  width: 100%;
+  height: auto;
+}
+
+/** Spelarnamn **/
+.name {
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+}
+
+/** Spelarpoäng **/
+.score {
+  font-size: 5rem;
+  color: #c7365f; /* Rosa poängfärg */
+}
+
+/** Aktiv spelare **/
+.player--active {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.4
+  ); /* Ljus bakgrund för aktiv spelare */
+}
+
+.player--active .current {
+  opacity: 1; /* Genomskinlighet för aktuella poäng */
+}
+
+/** Aktuella poäng **/
+.current {
+  margin: 0 auto;
+  background-color: #c7365f; /* Rosa bakgrund för aktuella poäng */
+  opacity: 0.8; /* 80% opacitet */
+  border-radius: 9px; /* Runda hörn för behållaren */
+  color: #fff; /* Vit textfärg */
+  width: 70%;
+  text-align: center;
+  transition: all 0.75s;
+}
+
+.current-label {
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-size: 1.7rem;
+  color: #ddd; /* Ljusgrå textfärg för etiketten */
+  padding: 1rem;
+}
+
+.current-score {
+  font-size: 3.5rem;
+  padding: 1rem;
+}
+
+/** Knappar **/
+.btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #444; /* Mörkgrå textfärg */
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ); /* Ljus bakgrundsfärg för knappen */
+  backdrop-filter: blur(20px); /* Bakgrundsludd för genomskinlighetseffekt */
+  padding: 1rem;
+  border-radius: 50rem; /* Runda knappar */
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1); /* Skugga för att lyfta fram knappen */
+}
+
+.btn--new {
+  top: 10%;
+}
+
+.btn--roll {
+  top: 60%;
+}
+
+.btn--hold {
+  top: 75%;
+}
+
+/** Knappar vid hovring **/
+.btn--new:hover {
+  padding: 1rem;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  background-color: #bf2e34; /* Mörkröd bakgrundsfärg vid hovring */
+  backdrop-filter: none;
+  color: white; /* Vit textfärg vid hovring */
+  box-shadow: -2px 7px 15px -7px rgba(0, 0, 0, 0.75); /* Skugga för att lyfta fram knappen vid hovring */
+  -webkit-box-shadow: -2px 7px 15px -7px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -2px 7px 15px -7px rgba(0, 0, 0, 0.75);
+  transition: all 0.2s;
+}
+
+.btn--roll:hover,
+.btn--hold:hover {
+  padding: 1.3rem;
+  box-shadow: -2px 7px 15px -7px rgba(0, 0, 0, 0.75); /* Skugga för att lyfta fram knappen vid hovring */
+  -webkit-box-shadow: -2px 7px 15px -7px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -2px 7px 15px -7px rgba(0, 0, 0, 0.75);
+  transition: all 0.3s;
+}
+
+.btn:active {
+  transform: translate(-50%, 3px); /* Lätt nedtryckningseffekt vid klick */
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15); /* Skugga för att indikera klick */
+}
+
+.btn:focus {
+  outline: none; /* Ta bort fokusramen */
+}
+
+.dice {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translateX(-50%);
+  height: 8rem;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2); /* Skugga för att lyfta fram tärningsbilden */
+}
+
+.player--winner {
+  background-color: #2f2f2f; /* Mörkgrå bakgrundsfärg för vinnare */
+}
+
+.player--winner .name {
+  font-weight: 700;
+  color: #c7365f; /* Rosa färg för vinnarens namn */
+}
+
+.hidden {
+  display: none; /* Dölj elementet */
+}
+
+/** Mediaförfrågningar för responsiv design **/
+
+@media screen and (max-width: 1025px) {
+  main {
+    width: 80%; /* Justera bredden för mindre skärmar */
+  }
+}
+
+@media screen and (max-width: 801px) {
+  main {
+    width: 80%; /* Justera bredden för mindre skärmar */
+  }
+  .dice {
+    height: 6rem; /* Justera höjden för mindre skärmar */
+  }
+  .btn {
+    font-size: 1.2rem; /* Justera textstorleken för mindre skärmar */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    width: 90%; /* Justera bredden för mindre skärmar */
+  }
+  .dice {
+    margin-top: -20%; /* Justera marginals för mindre skärmar */
+    height: 5rem; /* Justera höjden för mindre skärmar */
+  }
+  .score {
+    margin-top: 0; /* Återställ marginalen för mindre skärmar */
+  }
+  .btn {
+    font-size: 1rem; /* Justera textstorleken för mindre skärmar */
+    padding: 0.8rem; /* Justera stoppning för mindre skärmar */
+  }
+  .btn--new {
+    top: 25%; /* Justera placeringen för mindre skärmar */
+  }
+  .btn--roll {
+    top: 40%; /* Justera placeringen för mindre skärmar */
+    padding: 0.5rem; /* Justera stoppning för mindre skärmar */
+  }
+  .btn--hold {
+    top: 50%; /* Justera placeringen för mindre skärmar */
+    padding: 0.9rem; /* Justera stoppning för mindre skärmar */
+  }
+
+  .btn--roll:hover,
+  .btn--hold:hover {
+    padding: 0.5rem; /* Justera stoppning för mindre skärmar */
+  }
+
+  .btn--new:hover {
+    padding: 1rem; /* Justera stoppning för mindre skärmar */
+    font-size: 1rem; /* Justera textstorleken för mindre skärmar */
+  }
+
+  .current-score {
+    font-size: 2rem; /* Justera textstorleken för mindre skärmar */
+    margin-top: 0; /* Återställ marginalen för mindre skärmar */
+    padding: 1.5rem; /* Justera stoppning för mindre skärmar */
+  }
+}
